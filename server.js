@@ -1,15 +1,23 @@
-const notes = require('./notes.js');
-var _ = require('lodash');
+const express = require('express')
+const app = express()
 
+app.get('/', function (req, res) {
+  res.send('Welcome to my hotel... How i can help you')
+})
 
-console.log('server file is available');
+app.get('/chicken', (req, res)=>{
+    res.send('sure sir, i would love to serve chicken')
+})
 
-var age = notes.age;
+app.get('/idli', (req, res)=>{
+    var customized_idli = {
+        name: 'rava idli',
+        size: '10cm daimeter',
+        is_sambhar: true
+    }
+    res.send(customized_idli)
+})
 
-var result = notes.addNumber(age+18, 10);
-console.log(age);
-console.log('result is now'+ result);
-
-var data = ["person", "person",1,2,1,2,'name', 'age', '2'];
-  var filter = _.uniq(data);
-  console.log(filter);
+app.listen(3000, ()=>{
+    console.log('listening on port 3000');
+})

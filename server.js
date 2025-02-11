@@ -18,6 +18,10 @@ app.get('/idli', (req, res)=>{
     res.send(customized_idli)
 })
 
+app.post('/items', (req, res)=>{
+    res.send('data saved');
+})
+
 app.listen(3000, ()=>{
     console.log('listening on port 3000');
 })
